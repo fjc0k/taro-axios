@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "target": "esnext",
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": false,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "outDir": "lib",
+    "skipLibCheck": true,
+    "newLine": "LF"
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "lib",
+    "dist"
+  ],
+  "compileOnSave": false
+}
