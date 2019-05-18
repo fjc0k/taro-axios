@@ -1,21 +1,52 @@
 import axios from 'axios'
-import Taro from '@tarojs/taro'
-import { TaroAdapter } from './TaroAdapter'
+import { isWebLikeEnv } from './env'
+import { PostData } from './helpers'
+import { taroAdapter, xhrAdapter } from './adapters'
 
-// 获取当前平台
-const platform: Taro.ENV_TYPE = Taro.getEnv()
+const utils = require('axios/lib/utils') as any
+const normalizeHeaderName = require('axios/lib/helpers/normalizeHeaderName') as any
 
-// 使用 xhr 适配器的平台
-const platformsUsingXhrAdapter: Array<Taro.ENV_TYPE> = [
-  Taro.ENV_TYPE.WEB,
-  Taro.ENV_TYPE.RN,
+function setContentTypeIfUnset(headers: any, value: any) {
+  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
+    headers['Content-Type'] = value
+  }
+}
+
+/* istanbul ignore next: 仅让默认的 transformRequest 放行 PostData */
+axios.defaults.transformRequest = [
+  function transformRequest(data, headers) {
+    normalizeHeaderName(headers, 'Content-Type')
+    if (
+      utils.isFormData(data)
+        || utils.isArrayBuffer(data)
+        || utils.isBuffer(data)
+        || utils.isStream(data)
+        || utils.isFile(data)
+        || utils.isBlob(data)
+        // 支持 PostData
+        || data instanceof PostData
+    ) {
+      return data
+    }
+    if (utils.isArrayBufferView(data)) {
+      return data.buffer
+    }
+    if (utils.isURLSearchParams(data)) {
+      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8')
+      return data.toString()
+    }
+    if (utils.isObject(data)) {
+      setContentTypeIfUnset(headers, 'application/json;charset=utf-8')
+      return JSON.stringify(data)
+    }
+    return data
+  },
 ]
 
-// 非使用 xhr 适配器的平台一律使用 Taro 适配器
-if (platformsUsingXhrAdapter.indexOf(platform) === -1) {
-  axios.defaults.adapter = TaroAdapter
-}
+axios.defaults.adapter = isWebLikeEnv ? xhrAdapter : taroAdapter
 
 export * from 'axios'
 
-export { axios, TaroAdapter as AxiosTaroAdapter }
+export * from './helpers'
+
+export { axios }
