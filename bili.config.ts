@@ -4,8 +4,9 @@ const config: Config = {
   input: 'src/index.ts',
   output: {
     target: 'browser',
-    format: ['cjs', 'cjs-min', 'esm'],
+    format: ['esm'],
     dir: 'lib',
+    fileName: '[name].js',
   },
   bundleNodeModules: true,
   externals: ['@tarojs/taro'],

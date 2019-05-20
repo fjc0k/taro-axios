@@ -3,7 +3,6 @@
   "version": "0.2.1",
   "description": "在 Taro 中使用 axios。",
   "main": "lib/index.js",
-  "module": "lib/index.esm.js",
   "typings": "lib/index.d.ts",
   "author": {
     "name": "Jay Fong",
@@ -29,7 +28,7 @@
     "lib"
   ],
   "scripts": {
-    "build": "bili",
+    "build": "bili && cp-cli lib/ example/src/axios/",
     "lint:es": "eslint --fix src/",
     "test": "jest",
     "test:cov": "jest --coverage",
@@ -43,7 +42,8 @@
     "lib",
     "dist",
     "node_modules",
-    "__snapshots__"
+    "__snapshots__",
+    "axios"
   ],
   "commitlint": {
     "extends": [
@@ -88,6 +88,7 @@
     "bili": "^4.8.0",
     "codecov": "^3.3.0",
     "commitlint-config-io": "^0.3.0",
+    "cp-cli": "^2.0.0",
     "eslint": "^5.15.0",
     "eslint-config-io": "^0.5.1",
     "husky": "^1.3.1",

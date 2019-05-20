@@ -1,11 +1,13 @@
 import Taro from '@tarojs/taro'
-import { AxiosAdapter, AxiosRequestConfig, AxiosResponse } from 'axios'
+import { AxiosAdapter, AxiosResponse } from 'axios'
 import { isObject, isString, merge } from '../utils'
 import { PostData } from '../helpers'
-
-const createError = require('axios/lib/core/createError') as (message: string, config: AxiosRequestConfig, code?: string, request?: any, response?: any) => Error
-const buildUrl = require('axios/lib/helpers/buildURL') as (url: AxiosRequestConfig['url'], params: AxiosRequestConfig['params'], paramsSerializer: AxiosRequestConfig['paramsSerializer']) => string
-const settle = require('axios/lib/core/settle') as (resolve: Function, reject: Function, response: AxiosResponse) => void
+// @ts-ignore
+import createError from 'axios/lib/core/createError'
+// @ts-ignore
+import buildUrl from 'axios/lib/helpers/buildURL'
+// @ts-ignore
+import settle from 'axios/lib/core/settle'
 
 export const taroAdapter: AxiosAdapter = config => {
   return new Promise((resolve, reject) => {

@@ -1,4 +1,7 @@
-const { isString, isObject, forEach, merge } = require('axios/lib/utils') as {
+// @ts-ignore
+import utils from 'axios/lib/utils'
+
+const { isString, isObject, forEach, merge } = utils as {
   isString(value: any): value is string,
   isObject(value: any): value is Record<string, string>,
   forEach<T extends Record<string, any>>(obj: T, fn: (value: T[keyof T], key: keyof T, obj: T) => void): void,

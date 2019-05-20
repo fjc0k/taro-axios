@@ -325,9 +325,6 @@ describe('其他', () => {
       }),
     })
     const file = new File(Array.from('hello'), 'test.txt')
-    // axios({
-    //   method: ''
-    // })
     const res = await axios.post(
       url,
       new PostData({

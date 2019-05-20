@@ -2,9 +2,10 @@ import axios from 'axios'
 import { isWebLikeEnv } from './env'
 import { PostData } from './helpers'
 import { taroAdapter, xhrAdapter } from './adapters'
-
-const utils = require('axios/lib/utils') as any
-const normalizeHeaderName = require('axios/lib/helpers/normalizeHeaderName') as any
+// @ts-ignore
+import utils from 'axios/lib/utils'
+// @ts-ignore
+import normalizeHeaderName from 'axios/lib/helpers/normalizeHeaderName'
 
 function setContentTypeIfUnset(headers: any, value: any) {
   if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {

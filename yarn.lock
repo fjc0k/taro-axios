@@ -1908,6 +1908,13 @@ cosmiconfig@^5.0.0, cosmiconfig@^5.0.2, cosmiconfig@^5.0.7:
     js-yaml "^3.13.0"
     parse-json "^4.0.0"
 
+cp-cli@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/cp-cli/-/cp-cli-2.0.0.tgz#0707ca60bcbf20884b16c2c110484263fa7f922d"
+  dependencies:
+    fs-extra "7.0.1"
+    yargs "12.0.5"
+
 cross-spawn@^5.0.1:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-5.1.0.tgz#e8bd0efee58fcff6f8f94510a0a554bbfa235449"
@@ -6741,7 +6748,7 @@ yargs-parser@^7.0.0:
   dependencies:
     camelcase "^4.1.0"
 
-yargs@^12.0.2:
+yargs@12.0.5, yargs@^12.0.2:
   version "12.0.5"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-12.0.5.tgz#05f5997b609647b64f66b81e3b4b10a368e7ad13"
   dependencies:
