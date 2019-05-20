@@ -1719,7 +1719,7 @@ var xhrAdapter = function xhrAdapter(config) {
         });
         Promise.all(Object.keys(fileData).map(function (key) {
           return new Promise(function (resolve) {
-            var fileContent = fileData[key];
+            var fileContent = fileData[key]; // 兼容 blob 地址
 
             if (isString$1(fileContent) && fileContent.indexOf('blob:') === 0) {
               var xhr = new XMLHttpRequest();
