@@ -16,6 +16,7 @@ function setContentTypeIfUnset(headers: any, value: any) {
 /* istanbul ignore next: 仅让默认的 transformRequest 放行 PostData */
 axios.defaults.transformRequest = [
   function transformRequest(data, headers) {
+    normalizeHeaderName(headers, 'Accept')
     normalizeHeaderName(headers, 'Content-Type')
     if (
       utils.isFormData(data)
