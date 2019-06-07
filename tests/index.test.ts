@@ -3,11 +3,13 @@ import * as qs from 'qs'
 import * as Taro from '@tarojs/taro-h5'
 import { isFunction, isPlainObject, wait } from 'vtils'
 
+process.env.TARO_ENV = 'h5'
+
 const withAxiosList: Array<() => Promise<typeof import('../src')>> = [
   async function WebOrRN() {
     jest.resetModules()
     jest.mock(
-      '@tarojs/taro',
+      '@tarojs/taro-h5',
       () => ({
         ...Taro,
         getEnv: () => Taro.ENV_TYPE.WEB,
@@ -18,7 +20,7 @@ const withAxiosList: Array<() => Promise<typeof import('../src')>> = [
   async function MiniProgram() {
     jest.resetModules()
     jest.mock(
-      '@tarojs/taro',
+      '@tarojs/taro-h5',
       () => ({
         ...Taro,
         getEnv: () => Taro.ENV_TYPE.WEAPP,
@@ -59,7 +61,7 @@ describe('多端适配', () => {
     test(`${envType} 环境下，使用 xhr 适配器`, async () => {
       jest.resetModules()
       jest.mock(
-        '@tarojs/taro',
+        '@tarojs/taro-h5',
         () => ({
           ...Taro,
           getEnv: () => envType,
@@ -75,7 +77,7 @@ describe('多端适配', () => {
   test('小程序环境下，使用 taro 适配器', async () => {
     jest.resetModules()
     jest.mock(
-      '@tarojs/taro',
+      '@tarojs/taro-h5',
       () => ({
         ...Taro,
         getEnv: () => Taro.ENV_TYPE.WEAPP,

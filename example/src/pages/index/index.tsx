@@ -1,6 +1,6 @@
 import './index.css'
 import Taro, { Component, Config } from '@tarojs/taro'
-import { axios, FileData, PostData } from '../../axios'
+import { axios, FileData, PostData } from 'taro-axios'
 import { Button, Text, View } from '@tarojs/components'
 
 export default class Index extends Component {

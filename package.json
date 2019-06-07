@@ -3,6 +3,7 @@
   "version": "0.3.1",
   "description": "在 Taro 中使用 axios。",
   "main": "lib/index.js",
+  "module": "lib/index.esm.js",
   "typings": "lib/index.d.ts",
   "author": {
     "name": "Jay Fong",
@@ -28,7 +29,7 @@
     "lib"
   ],
   "scripts": {
-    "build": "bili && cp-cli lib/ example/src/axios/",
+    "build": "bili",
     "lint:es": "eslint --fix src/",
     "test": "jest",
     "test:cov": "jest --coverage",

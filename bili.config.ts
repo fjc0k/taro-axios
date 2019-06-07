@@ -4,12 +4,11 @@ const config: Config = {
   input: 'src/index.ts',
   output: {
     target: 'browser',
-    format: ['esm'],
+    format: ['cjs', 'es'],
     dir: 'lib',
-    fileName: '[name].js',
   },
   bundleNodeModules: true,
-  externals: ['@tarojs/taro'],
+  externals: [/@tarojs/],
 }
 
 export default config

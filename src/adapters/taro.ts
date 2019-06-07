@@ -1,6 +1,5 @@
-import Taro from '@tarojs/taro'
 import { AxiosAdapter, AxiosResponse } from 'axios'
-import { isObject, isString, merge } from '../utils'
+import { getTaro, isObject, isString, merge } from '../utils'
 import { PostData } from '../helpers'
 // @ts-ignore
 import createError from 'axios/lib/core/createError'
@@ -8,6 +7,8 @@ import createError from 'axios/lib/core/createError'
 import buildUrl from 'axios/lib/helpers/buildURL'
 // @ts-ignore
 import settle from 'axios/lib/core/settle'
+
+const Taro = getTaro()
 
 export const taroAdapter: AxiosAdapter = config => {
   return new Promise((resolve, reject) => {
@@ -40,11 +41,11 @@ export const taroAdapter: AxiosAdapter = config => {
         })
         abortRequestTask = request.abort
         if (typeof config.onUploadProgress === 'function') {
-          request.progress(e => {
+          request.progress((e: any) => {
             config.onUploadProgress!(
               merge(
                 e,
-                // 兼容 XMLHttpRequest.onprogress 的数据结构、、、
+                // 兼容 XMLHttpRequest.onprogress 的数据结构
                 {
                   total: e.totalBytesExpectedToSend,
                   loaded: e.totalBytesSent,
@@ -53,7 +54,7 @@ export const taroAdapter: AxiosAdapter = config => {
             )
           })
         }
-        requestTask = request.then<AxiosResponse>(res => {
+        requestTask = (request as Promise<any>).then<AxiosResponse>(res => {
           let data = res.data
           if (config.responseType === 'json') {
             try {
@@ -89,7 +90,7 @@ export const taroAdapter: AxiosAdapter = config => {
         dataType: config.responseType === 'json' ? 'json' : config.responseType,
       })
       abortRequestTask = (request as any).abort
-      requestTask = request.then<AxiosResponse>(res => {
+      requestTask = (request as Promise<any>).then<AxiosResponse>(res => {
         return {
           data: res.data,
           status: res.statusCode,

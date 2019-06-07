@@ -16,4 +16,29 @@ function objectToQueryString(obj: Record<string, any>) {
   return result.join('&')
 }
 
-export { isString, isObject, forEach, merge, objectToQueryString }
+function getTaro(): any {
+  let Taro: any
+
+  /* istanbul ignore next */
+  if (process.env.TARO_ENV === 'weapp') {
+    Taro = require('@tarojs/taro-weapp')
+  } else if (process.env.TARO_ENV === 'h5') {
+    Taro = require('@tarojs/taro-h5')
+  } else if (process.env.TARO_ENV === 'swan') {
+    Taro = require('@tarojs/taro-swan')
+  } else if (process.env.TARO_ENV === 'alipay') {
+    Taro = require('@tarojs/taro-alipay')
+  } else if (process.env.TARO_ENV === 'rn') {
+    Taro = require('@tarojs/taro-rn')
+  } else if (process.env.TARO_ENV === 'tt') {
+    Taro = require('@tarojs/taro-tt')
+  } else if (process.env.TARO_ENV === 'qq') {
+    Taro = require('@tarojs/taro-qq')
+  } else if (process.env.TARO_ENV === 'quickapp') {
+    Taro = require('@tarojs/taro-quickapp')
+  }
+
+  return Taro
+}
+
+export { isString, isObject, forEach, merge, objectToQueryString, getTaro }

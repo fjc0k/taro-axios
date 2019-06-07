@@ -1,4 +1,6 @@
-import Taro from '@tarojs/taro'
+import { getTaro } from './utils'
+
+const Taro = getTaro()
 
 export const isWebLikeEnv = (
   [
