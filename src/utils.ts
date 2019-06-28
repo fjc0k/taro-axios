@@ -38,7 +38,7 @@ function getTaro(): any {
     Taro = require('@tarojs/taro-quickapp')
   }
 
-  return Taro
+  return Taro && Taro.default || Taro
 }
 
 export { isString, isObject, forEach, merge, objectToQueryString, getTaro }
