@@ -12,6 +12,7 @@ const withAxiosList: Array<() => Promise<typeof import('../src')>> = [
       '@tarojs/taro-h5',
       () => ({
         ...Taro,
+        default: undefined,
         getEnv: () => Taro.ENV_TYPE.WEB,
       }),
     )
@@ -23,6 +24,7 @@ const withAxiosList: Array<() => Promise<typeof import('../src')>> = [
       '@tarojs/taro-h5',
       () => ({
         ...Taro,
+        default: undefined,
         getEnv: () => Taro.ENV_TYPE.WEAPP,
       }),
     )
@@ -64,6 +66,7 @@ describe('多端适配', () => {
         '@tarojs/taro-h5',
         () => ({
           ...Taro,
+          default: undefined,
           getEnv: () => envType,
         }),
       )
@@ -80,6 +83,7 @@ describe('多端适配', () => {
       '@tarojs/taro-h5',
       () => ({
         ...Taro,
+        default: undefined,
         getEnv: () => Taro.ENV_TYPE.WEAPP,
       }),
     )
