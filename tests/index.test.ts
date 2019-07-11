@@ -9,7 +9,7 @@ const withAxiosList: Array<() => Promise<typeof import('../src')>> = [
   async function WebOrRN() {
     jest.resetModules()
     jest.mock(
-      '@tarojs/taro-h5',
+      '@tarojs/taro',
       () => ({
         ...Taro,
         default: undefined,
@@ -21,7 +21,7 @@ const withAxiosList: Array<() => Promise<typeof import('../src')>> = [
   async function MiniProgram() {
     jest.resetModules()
     jest.mock(
-      '@tarojs/taro-h5',
+      '@tarojs/taro',
       () => ({
         ...Taro,
         default: undefined,
@@ -63,7 +63,7 @@ describe('多端适配', () => {
     test(`${envType} 环境下，使用 xhr 适配器`, async () => {
       jest.resetModules()
       jest.mock(
-        '@tarojs/taro-h5',
+        '@tarojs/taro',
         () => ({
           ...Taro,
           default: undefined,
@@ -80,7 +80,7 @@ describe('多端适配', () => {
   test('小程序环境下，使用 taro 适配器', async () => {
     jest.resetModules()
     jest.mock(
-      '@tarojs/taro-h5',
+      '@tarojs/taro',
       () => ({
         ...Taro,
         default: undefined,
