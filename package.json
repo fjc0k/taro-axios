@@ -1,6 +1,6 @@
 {
   "name": "taro-axios",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "description": "在 Taro 中使用 axios。",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",

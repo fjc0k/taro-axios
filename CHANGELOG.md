@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.0"></a>
+# [0.4.0](https:///github.com/fjc0k/taro-axios/compare/v0.3.4...v0.4.0) (2019-07-11)
+
+
+### Features
+
+* 优化 H5 下 Taro 的获取 ([7085460](https:///github.com/fjc0k/taro-axios/commits/7085460))
+
+
+
 <a name="0.3.4"></a>
 ## [0.3.4](https:///github.com/fjc0k/taro-axios/compare/v0.3.3...v0.3.4) (2019-06-28)
 
