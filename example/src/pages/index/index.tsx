@@ -29,7 +29,7 @@ export default class Index extends Component {
               content: JSON.stringify(res.data),
             })
           }}>
-          <Text>发送 GET 请求</Text>
+          <Text>发送 GET 请求(200)</Text>
         </Button>
 
         {/* POST */}
@@ -48,7 +48,35 @@ export default class Index extends Component {
               content: JSON.stringify(res.data),
             })
           }}>
-          <Text>发送 POST 请求</Text>
+          <Text>发送 POST 请求(201)</Text>
+        </Button>
+        <Button
+          className='button'
+          onClick={async () => {
+            Taro.showLoading({ title: '请求中...' })
+            const res = await axios.post('http://httpstat.us/302')
+            console.log(res)
+            Taro.hideLoading()
+            Taro.showModal({
+              title: '返回结果',
+              content: JSON.stringify(res.data),
+            })
+          }}>
+          <Text>发送 POST 请求(302)</Text>
+        </Button>
+        <Button
+          className='button'
+          onClick={async () => {
+            Taro.showLoading({ title: '请求中...' })
+            const res = await axios.post('http://httpstat.us/500')
+            console.log(res)
+            Taro.hideLoading()
+            Taro.showModal({
+              title: '返回结果',
+              content: JSON.stringify(res.data),
+            })
+          }}>
+          <Text>发送 POST 请求(500)</Text>
         </Button>
         <Button
           className='button'
