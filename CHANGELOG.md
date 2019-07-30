@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.1"></a>
+## [0.4.1](https:///github.com/fjc0k/taro-axios/compare/v0.4.0...v0.4.1) (2019-07-30)
+
+
+### Bug Fixes
+
+* **taro-adapter:** 因状态码导致的报错应将请求结果转发给 axios 处理 ([5987c76](https:///github.com/fjc0k/taro-axios/commits/5987c76))
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](https:///github.com/fjc0k/taro-axios/compare/v0.3.4...v0.4.0) (2019-07-11)
 
