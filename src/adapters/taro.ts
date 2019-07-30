@@ -107,9 +107,21 @@ export const taroAdapter: AxiosAdapter = config => {
       .then(response => {
         settle(resolve, reject, response)
       })
-      .catch(() => {
-        const error = createError('Network Error', config, undefined, requestTask)
-        reject(error)
+      .catch(response => {
+        // 如果存在状态码，说明请求服务器成功，将结果转发给 axios 处理
+        if (response && typeof response === 'object' && (response.status != null || response.statusCode != null)) {
+          settle(resolve, reject, {
+            data: response.data,
+            status: response.status != null ? response.status : response.statusCode,
+            statusText: '',
+            headers: response.header || response.headers || {},
+            config: config,
+            request: requestTask,
+          })
+        } else {
+          const error = createError('Network Error', config, undefined, requestTask)
+          reject(error)
+        }
       })
 
     // 支持取消请求任务
