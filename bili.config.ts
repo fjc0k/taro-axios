@@ -4,8 +4,9 @@ const config: Config = {
   input: 'src/index.ts',
   output: {
     target: 'browser',
-    format: ['cjs', 'es'],
+    format: ['cjs', 'cjs-min', 'es'],
     dir: 'lib',
+    sourceMap: true,
   },
   bundleNodeModules: true,
   externals: [/@tarojs/],

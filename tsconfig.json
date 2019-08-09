@@ -12,7 +12,8 @@
     "allowSyntheticDefaultImports": true,
     "outDir": "lib",
     "skipLibCheck": true,
-    "newLine": "LF"
+    "newLine": "LF",
+    "sourceMap": true
   },
   "include": [
     "src"
