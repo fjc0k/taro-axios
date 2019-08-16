@@ -2,6 +2,14 @@
 
 在 [Taro](https://github.com/NervJS/taro) 中使用 [axios](https://github.com/axios/axios)。
 
+## 源起
+
+因为 `Taro` 不支持解析 `package.json` 里的 `browser` 参数，导致所有使用了该特性的包都可能无法在 `Taro` 里正常运行。不幸的是，`axios` 就是其中之一。
+
+于是，在一个风和日丽的夜晚，诞生了本项目：`taro-axios`。
+
+`taro-axios` 只是 `axios` 的 `Taro` 重制版，并非是为 `Taro` 仿写了一个 `axios`。`axios` 提供什么，`taro-axios` 也就提供什么。
+
 ## 特性
 
 - 使用 TypeScript 编写，类型友好
@@ -61,4 +69,4 @@ function async uploadImage() {
 
 ## 许可
 
-MIT ©️ Jay Fong
+MIT © Jay Fong
