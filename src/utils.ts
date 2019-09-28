@@ -1,3 +1,4 @@
+import * as rawTaro from '@tarojs/taro'
 // @ts-ignore
 import utils from 'axios/lib/utils'
 
@@ -16,8 +17,8 @@ function objectToQueryString(obj: Record<string, any>) {
   return result.join('&')
 }
 
-function getTaro(): any {
-  let Taro: any
+function getTaro(): typeof rawTaro {
+  let Taro!: typeof rawTaro
 
   /* istanbul ignore next */
   if (process.env.TARO_ENV === 'weapp') {
@@ -41,7 +42,7 @@ function getTaro(): any {
     Taro = require('@tarojs/taro-quickapp')
   }
 
-  return Taro && Taro.default || Taro
+  return Taro && (Taro as any).default || Taro
 }
 
 export { isString, isObject, forEach, merge, objectToQueryString, getTaro }

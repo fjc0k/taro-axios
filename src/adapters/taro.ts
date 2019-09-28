@@ -41,7 +41,7 @@ export const taroAdapter: AxiosAdapter = config => {
         })
         abortRequestTask = request.abort
         if (typeof config.onUploadProgress === 'function') {
-          request.progress((e: any) => {
+          request.progress(e => {
             config.onUploadProgress!(
               merge(
                 e,
@@ -54,7 +54,7 @@ export const taroAdapter: AxiosAdapter = config => {
             )
           })
         }
-        requestTask = (request as Promise<any>).then<AxiosResponse>(res => {
+        requestTask = request.then(res => {
           let data = res.data
           if (config.responseType === 'json') {
             try {
@@ -90,7 +90,7 @@ export const taroAdapter: AxiosAdapter = config => {
         dataType: config.responseType === 'json' ? 'json' : config.responseType,
       })
       abortRequestTask = (request as any).abort
-      requestTask = (request as Promise<any>).then<AxiosResponse>(res => {
+      requestTask = request.then(res => {
         return {
           data: res.data,
           status: res.statusCode,
