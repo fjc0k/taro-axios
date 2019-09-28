@@ -11,14 +11,14 @@
     "url": "https://github.com/fjc0k"
   },
   "license": "MIT",
-  "homepage": "https:/github.com/fjc0k/taro-axios",
+  "homepage": "https://github.com/fjc0k/taro-axios",
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "https:/github.com/fjc0k/taro-axios.git"
+    "url": "git@github.com:fjc0k/taro-axios.git"
   },
   "bugs": {
-    "url": "https:/github.com/fjc0k/taro-axios/issues"
+    "url": "https://github.com/fjc0k/taro-axios/issues"
   },
   "keywords": [
     "taro",
