@@ -49,7 +49,7 @@ axios
 ```ts
 import { axios, PostData, FileData } from 'taro-axios'
 
-function async uploadImage() {
+async function uploadImage() {
   const { tempFilePaths } = await Taro.chooseImage({ count: 1 })
   Taro.showLoading({ title: '图片上传中...' })
   const res = await axios.post(
