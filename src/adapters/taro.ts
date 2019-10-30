@@ -102,12 +102,28 @@ export const taroAdapter: AxiosAdapter = config => {
       })
     }
 
+    // 支持超时处理
+    let timer: any = null
+    if (config.timeout) {
+      timer = setTimeout(
+        () => {
+          abortRequestTask && abortRequestTask()
+          // ref: https://github.com/axios/axios/blob/master/lib/adapters/xhr.js#L90
+          const timeoutErrorMessage = `timeout of ${config.timeout}ms exceeded`
+          reject(createError(timeoutErrorMessage, config, 'ECONNABORTED', requestTask))
+        },
+        config.timeout,
+      )
+    }
+
     // 请求任务结果处理
     requestTask
       .then(response => {
+        timer && clearTimeout(timer)
         settle(resolve, reject, response)
       })
       .catch(response => {
+        timer && clearTimeout(timer)
         // 如果存在状态码，说明请求服务器成功，将结果转发给 axios 处理
         if (response && typeof response === 'object' && (response.status != null || response.statusCode != null)) {
           settle(resolve, reject, {
@@ -127,6 +143,7 @@ export const taroAdapter: AxiosAdapter = config => {
     // 支持取消请求任务
     if (config.cancelToken) {
       config.cancelToken.promise.then(cancel => {
+        timer && clearTimeout(timer)
         abortRequestTask && abortRequestTask()
         reject(cancel)
       })

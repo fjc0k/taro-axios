@@ -140,6 +140,25 @@ withAxiosList.forEach(withAxios => {
         expect(err.message).toBe('Network Error')
       }
     })
+
+    test('超时处理', async () => {
+      const { axios } = await withAxios()
+      const { url, closeServer } = await withServer({
+        statusCode: 200,
+        response: async () => {
+          await wait(1500)
+          return { success: true }
+        },
+      })
+      try {
+        await axios.get(url, { timeout: 1000 })
+      } catch (err) {
+        expect(err.message).toBe('timeout of 1000ms exceeded')
+      }
+      const res = await axios.get(url, { timeout: 2000 })
+      expect(res.data).toEqual({ success: true })
+      closeServer()
+    })
   })
 
   describe(`${withAxios.name} - GET`, () => {
