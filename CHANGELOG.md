@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.0"></a>
+# [0.7.0](https://github.com/fjc0k/taro-axios/compare/v0.6.0...v0.7.0) (2019-11-06)
+
+
+### Features
+
+* 默认导出 axios ([f0c6dd1](https://github.com/fjc0k/taro-axios/commit/f0c6dd1))
+
+
+
 <a name="0.6.0"></a>
 # [0.6.0](https://github.com/fjc0k/taro-axios/compare/v0.5.3...v0.6.0) (2019-10-30)
 
