@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/fjc0k/taro-axios/compare/v0.7.0...v1.0.0) (2020-03-19)
+
+
+### Features
+
+* 支持 Taro 3 ([a576c58](https://github.com/fjc0k/taro-axios/commit/a576c58))
+
+
+
 <a name="0.7.0"></a>
 # [0.7.0](https://github.com/fjc0k/taro-axios/compare/v0.6.0...v0.7.0) (2019-11-06)
 
