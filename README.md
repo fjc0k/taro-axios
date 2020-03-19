@@ -18,12 +18,25 @@
 
 ## 安装
 
+### Taro 3
+
 ```bash
 # yarn
 yarn add taro-axios
 
 # 或, npm
 npm i taro-axios --save
+```
+
+### Taro 1、Taro 2
+
+
+```bash
+# yarn
+yarn add taro-axios@0.7.0
+
+# 或, npm
+npm i taro-axios@0.7.0 --save
 ```
 
 ## 使用
