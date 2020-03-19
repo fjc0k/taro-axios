@@ -1,13 +1,24 @@
 {
 	"miniprogramRoot": "dist/",
-	"projectname": "example",
-	"description": "example",
-	"appid": "touristappid",
+	"projectname": "my",
+	"description": "test",
+	"appid": "wx15002fb034d4fb9a",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": false,
 		"postcss": false,
-		"minified": false
+		"minified": false,
+		"newFeature": true,
+		"coverView": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
 	"simulatorType": "wechat",

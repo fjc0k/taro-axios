@@ -1,0 +1,16 @@
+diff --git a/node_modules/axios/lib/utils.js b/node_modules/axios/lib/utils.js
+index 8946055..0793bc4 100644
+--- a/node_modules/axios/lib/utils.js
++++ b/node_modules/axios/lib/utils.js
+@@ -188,7 +188,10 @@ function isStandardBrowserEnv() {
+   }
+   return (
+     typeof window !== 'undefined' &&
+-    typeof document !== 'undefined'
++    typeof document !== 'undefined' &&
++    // 兼容 Taro 3
++    // ref: https://github.com/NervJS/taro/issues/5741#issuecomment-601102518
++    !!document.scripts
+   );
+ }
+ 

@@ -1,12 +1,19 @@
 import './index.css'
-import Taro, { Component, Config } from '@tarojs/taro'
+import React, { Component } from 'react'
+import Taro from '@tarojs/taro'
 import { axios, FileData, PostData } from 'taro-axios'
 import { Button, Text, View } from '@tarojs/components'
 
 export default class Index extends Component {
-  config: Config = {
-    navigationBarTitleText: '首页',
-  }
+  componentWillMount() { }
+
+  componentDidMount() { }
+
+  componentWillUnmount() { }
+
+  componentDidShow() { }
+
+  componentDidHide() { }
 
   render() {
     return (
