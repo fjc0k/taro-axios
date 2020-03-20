@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.1"></a>
+## [1.0.1](https://github.com/fjc0k/taro-axios/compare/v1.0.0...v1.0.1) (2020-03-20)
+
+
+### Bug Fixes
+
+* 发布时去除 pkg.scripts (close: [#18](https://github.com/fjc0k/taro-axios/issues/18)) ([63ec65e](https://github.com/fjc0k/taro-axios/commit/63ec65e))
+
+
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/fjc0k/taro-axios/compare/v0.7.0...v1.0.0) (2020-03-19)
 
