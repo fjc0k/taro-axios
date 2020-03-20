@@ -33,7 +33,7 @@
     "lint:es": "eslint --fix src/",
     "test": "jest",
     "test:cov": "jest --coverage",
-    "release": "standard-version --commit-all --no-verify && git push --follow-tags origin master && yarn build && npm publish",
+    "release": "standard-version --commit-all --no-verify && git push --follow-tags origin master && yarn build && clean-publish --fields scripts",
     "postinstall": "patch-package"
   },
   "eslintConfig": {
@@ -88,6 +88,7 @@
     "@types/node": "^11.11.3",
     "@types/qs": "^6.5.3",
     "bili": "^4.8.0",
+    "clean-publish": "^1.1.6",
     "codecov": "^3.3.0",
     "commitlint-config-io": "^0.3.0",
     "cp-cli": "^2.0.0",

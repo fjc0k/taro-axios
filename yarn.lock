@@ -1556,6 +1556,19 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
+clean-publish@^1.1.6:
+  version "1.1.6"
+  resolved "https://registry.npm.taobao.org/clean-publish/download/clean-publish-1.1.6.tgz#c79fa12515db44b94bbee75d9a946cb0fb26e005"
+  integrity sha1-x5+hJRXbRLlLvuddmpRssPsm4AU=
+  dependencies:
+    chalk "^2.4.1"
+    cosmiconfig "^5.0.7"
+    cross-spawn "^6.0.5"
+    fs-extra "^6.0.1"
+    ramda "^0.25.0"
+    util.promisify "^1.0.0"
+    yargs "^12.0.1"
+
 cli-cursor@^2.0.0, cli-cursor@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/cli-cursor/-/cli-cursor-2.1.0.tgz#b35dac376479facc3e94747d41d0d0f5238ffcb5"
@@ -2803,6 +2816,15 @@ fs-extra@^4.0.3:
   version "4.0.3"
   resolved "https://registry.npm.taobao.org/fs-extra/download/fs-extra-4.0.3.tgz#0d852122e5bc5beb453fb028e9c0c9bf36340c94"
   integrity sha1-DYUhIuW8W+tFP7Ao6cDJvzY0DJQ=
+  dependencies:
+    graceful-fs "^4.1.2"
+    jsonfile "^4.0.0"
+    universalify "^0.1.0"
+
+fs-extra@^6.0.1:
+  version "6.0.1"
+  resolved "https://registry.npm.taobao.org/fs-extra/download/fs-extra-6.0.1.tgz?cache=0&sync_timestamp=1584632194837&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ffs-extra%2Fdownload%2Ffs-extra-6.0.1.tgz#8abc128f7946e310135ddc93b98bddb410e7a34b"
+  integrity sha1-irwSj3lG4xATXdyTuYvdtBDno0s=
   dependencies:
     graceful-fs "^4.1.2"
     jsonfile "^4.0.0"
@@ -5407,6 +5429,11 @@ quick-lru@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-1.1.0.tgz#4360b17c61136ad38078397ff11416e186dcfbb8"
 
+ramda@^0.25.0:
+  version "0.25.0"
+  resolved "https://registry.npm.taobao.org/ramda/download/ramda-0.25.0.tgz#8fdf68231cffa90bc2f9460390a0cb74a29b29a9"
+  integrity sha1-j99oIxz/qQvC+UYDkKDLdKKbKak=
+
 rc@^1.2.7:
   version "1.2.8"
   resolved "https://registry.yarnpkg.com/rc/-/rc-1.2.8.tgz#cd924bf5200a075b83c188cd6b9e211b7fc0d3ed"
@@ -6806,7 +6833,7 @@ yargs-parser@^7.0.0:
   dependencies:
     camelcase "^4.1.0"
 
-yargs@12.0.5, yargs@^12.0.2:
+yargs@12.0.5, yargs@^12.0.1, yargs@^12.0.2:
   version "12.0.5"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-12.0.5.tgz#05f5997b609647b64f66b81e3b4b10a368e7ad13"
   dependencies:
