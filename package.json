@@ -33,7 +33,7 @@
     "lint:es": "eslint --fix src/",
     "test": "jest",
     "test:cov": "jest --coverage",
-    "release": "standard-version --commit-all --no-verify && git push --follow-tags origin master && yarn build && clean-publish --fields scripts",
+    "release": "standard-version --commit-all --no-verify && git push --follow-tags origin master && yarn build && clean-publish --files example --fields scripts",
     "postinstall": "patch-package"
   },
   "eslintConfig": {
