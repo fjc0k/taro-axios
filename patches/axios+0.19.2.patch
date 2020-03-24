@@ -1,8 +1,23 @@
+diff --git a/node_modules/axios/lib/defaults.js b/node_modules/axios/lib/defaults.js
+index 23e1cbd..0b91da2 100644
+--- a/node_modules/axios/lib/defaults.js
++++ b/node_modules/axios/lib/defaults.js
+@@ -36,7 +36,9 @@ var defaults = {
+       utils.isBuffer(data) ||
+       utils.isStream(data) ||
+       utils.isFile(data) ||
+-      utils.isBlob(data)
++      utils.isBlob(data) ||
++      // 放行 PostData
++      (data !== null && typeof data === 'object' && data.toString() === '[object PostData]')
+     ) {
+       return data;
+     }
 diff --git a/node_modules/axios/lib/utils.js b/node_modules/axios/lib/utils.js
-index 8946055..66a4c92 100644
+index e028c67..ce878c5 100644
 --- a/node_modules/axios/lib/utils.js
 +++ b/node_modules/axios/lib/utils.js
-@@ -183,12 +183,18 @@ function trim(str) {
+@@ -193,12 +193,18 @@ function trim(str) {
  function isStandardBrowserEnv() {
    if (typeof navigator !== 'undefined' && (navigator.product === 'ReactNative' ||
                                             navigator.product === 'NativeScript' ||

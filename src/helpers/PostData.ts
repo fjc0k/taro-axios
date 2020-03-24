@@ -21,4 +21,8 @@ export class PostData<T extends Record<string, any>> {
     }
     return parsedPostData
   }
+
+  toString() {
+    return `[object ${PostData.name}]`
+  }
 }
