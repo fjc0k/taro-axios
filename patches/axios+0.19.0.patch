@@ -1,8 +1,17 @@
 diff --git a/node_modules/axios/lib/utils.js b/node_modules/axios/lib/utils.js
-index 8946055..0793bc4 100644
+index 8946055..66a4c92 100644
 --- a/node_modules/axios/lib/utils.js
 +++ b/node_modules/axios/lib/utils.js
-@@ -188,7 +188,10 @@ function isStandardBrowserEnv() {
+@@ -183,12 +183,18 @@ function trim(str) {
+ function isStandardBrowserEnv() {
+   if (typeof navigator !== 'undefined' && (navigator.product === 'ReactNative' ||
+                                            navigator.product === 'NativeScript' ||
+-                                           navigator.product === 'NS')) {
++                                           navigator.product === 'NS' ||
++                                           // 兼容 Taro 3
++                                           // ref: https://github.com/NervJS/taro/commit/7349f716111accb6a39c72ed0f1e6cbc166fa32b
++                                           navigator.product === 'Taro')) {
+     return false;
    }
    return (
      typeof window !== 'undefined' &&
