@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.1"></a>
+## [1.1.1](https://github.com/fjc0k/taro-axios/compare/v1.1.0...v1.1.1) (2020-04-24)
+
+
+### Bug Fixes
+
+* **taro-adapter:** 完整 url 对齐 axios 实现 (close: [#21](https://github.com/fjc0k/taro-axios/issues/21)) ([4b67cc0](https://github.com/fjc0k/taro-axios/commit/4b67cc0))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/fjc0k/taro-axios/compare/v1.0.2...v1.1.0) (2020-03-24)
 
