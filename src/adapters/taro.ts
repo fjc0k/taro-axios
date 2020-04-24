@@ -4,6 +4,8 @@ import { PostData } from '../helpers'
 // @ts-ignore
 import createError from 'axios/lib/core/createError'
 // @ts-ignore
+import buildFullPath from 'axios/lib/core/buildFullPath'
+// @ts-ignore
 import buildUrl from 'axios/lib/helpers/buildURL'
 // @ts-ignore
 import settle from 'axios/lib/core/settle'
@@ -13,7 +15,7 @@ const Taro = getTaro()
 export const taroAdapter: AxiosAdapter = config => {
   return new Promise((resolve, reject) => {
     const requestMethod: string = (isString(config.method) ? config.method : 'GET').toUpperCase()
-    const requestUrl: string = buildUrl(config.url, config.params, config.paramsSerializer)
+    const requestUrl: string = buildUrl(buildFullPath(config.baseURL, config.url), config.params, config.paramsSerializer)
     const requestHeaders: Record<string, string> = isObject(config.headers) ? config.headers : {}
 
     // 请求数据
