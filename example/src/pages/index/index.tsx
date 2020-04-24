@@ -1,8 +1,13 @@
 import './index.css'
 import React, { Component } from 'react'
 import Taro from '@tarojs/taro'
-import { axios, FileData, PostData } from 'taro-axios'
+// @ts-ignore
+import { axios, FileData, PostData } from '../../../../src'
 import { Button, Text, View } from '@tarojs/components'
+
+const axiosWithBaseUrl = axios.create({
+  baseURL: 'https://jsonplaceholder.typicode.com',
+})
 
 export default class Index extends Component {
   componentWillMount() { }
@@ -37,6 +42,24 @@ export default class Index extends Component {
             })
           }}>
           <Text>发送 GET 请求(200)</Text>
+        </Button>
+        <Button
+          className='button'
+          onClick={async () => {
+            Taro.showLoading({ title: '请求中...' })
+            const res = await axiosWithBaseUrl.get('/todos', {
+              params: {
+                userId: 2,
+              },
+            })
+            console.log(res)
+            Taro.hideLoading()
+            Taro.showModal({
+              title: '返回结果',
+              content: JSON.stringify(res.data),
+            })
+          }}>
+          <Text>发送 GET 请求(200) | with baseUrl</Text>
         </Button>
 
         {/* POST */}
