@@ -111,7 +111,7 @@ export const taroAdapter: AxiosAdapter = config => {
         () => {
           abortRequestTask && abortRequestTask()
           // ref: https://github.com/axios/axios/blob/master/lib/adapters/xhr.js#L90
-          const timeoutErrorMessage = `timeout of ${config.timeout}ms exceeded`
+          const timeoutErrorMessage = config.timeoutErrorMessage || `timeout of ${config.timeout}ms exceeded`
           reject(createError(timeoutErrorMessage, config, 'ECONNABORTED', requestTask))
         },
         config.timeout,
